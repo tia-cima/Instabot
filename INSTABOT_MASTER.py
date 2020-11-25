@@ -172,12 +172,12 @@ class Post:
 
 
     def post(self):
-        print("\nThis function allows you to post only a picture/video in loop every amount of time. The picture/video will be taken from a folder.\n")
+        print("\nThis function allows you to post only a picture in loop every amount of time. The picture will be taken from a folder.\n")
     
         username, passw = login(self.user, self.passw)
         print("\n----------------------------")
         delay = int(input("\nEnter the amount of time from a post to another (seconds): "))
-        photo = input("\nEnter the picture or the video's folder path (for example: Desktop/images/): ")
+        photo = input("\nEnter the picture's folder path (for example: Desktop/images/): ")
         description = input("\nEnter the caption: ")
 
         bot = Bot()
@@ -185,18 +185,18 @@ class Post:
 
         while(True):
             bot.upload_photo(photo, caption = description)
-            print(f"\nPicture/video posted. If not, the picture/video doesn't have a correct aspect ratio. Try to resize it.\n\n")
+            print(f"\nPicture posted. If not, the picture doesn't have a correct aspect ratio. Try to resize it.\n\n")
             time.sleep(delay)
             os.rename(f'{photo}.REMOVE_ME', photo)
 
 
     def post_more(self):
-            print("\nThis function allows you to post more different pictures or videos every amount of time. The pictures/videos will be taken from a folder.\n")
+            print("\nThis function allows you to post more different pictures every amount of time. The pictures will be taken from a folder.\n")
         
             username, passw = login(self.user, self.passw)
             print("\n----------------------------")
             delay = int(input("\nEnter the amount of time from a post to another (seconds):  "))
-            path = input("\nEnter the pictures or the videos' folder path (for example: Desktop/images/):  ")
+            path = input("\nEnter the pictures' folder path (for example: Desktop/images/):  ")
 
             print("\nEnter the captions. These captions will be inserted randomly under the posts. When you have finished, enter 'gg'.\n ")
             comments = []
@@ -217,7 +217,7 @@ class Post:
 
             for n in range(len(video)):
                 bot.upload_photo(str(video[n]), caption = random.choice(comments))
-                print("Picture/video posted. If not, the picture/video doesn't have a correct aspect ratio. Try to resize it..\n\n")
+                print("Picture posted. If not, the picture doesn't have a correct aspect ratio. Try to resize it..\n\n")
                 time.sleep(delay) 
 
 
@@ -319,8 +319,8 @@ while(True):
             action_post = int(input('''
                 
                 POST:
-                1) POST THE SAME PHOTO/VIDEO EVERY AMOUNT OF TIME
-                2) POST DIFFERENT PHOTOS/VIDEOS EVERY AMOUNT OF TIME
+                1) POST THE SAME PHOTO EVERY AMOUNT OF TIME
+                2) POST DIFFERENT PHOTOS EVERY AMOUNT OF TIME
                 3) RETURN TO THE MAIN MENU   
                 
                 --> '''))
